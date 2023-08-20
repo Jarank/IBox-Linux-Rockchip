@@ -1,0 +1,81 @@
+15,641 views  16 Jul 2020  Tutorials
+#Armbian #Rockchip #RK3288 #M8S
+https://youtu.be/Ek8-NXrgJtM
+
+
+Full steps can be found at https://i12bretro.github.io/tutorials...
+
+I love the idea of the Raspberry Pi, but there are some cheaper alternative single board computers that offer a similar experience for a fraction of the cost. While the community support isn't quite what it is for the Pi, there are a ton of projects you can accomplish on the cheap with these little hidden gems. Keep an eye on AliExpress and Amazon and you can find SBC's sporting quad core ARM process with 2-4 GB of RAM for under $30, including a power supply and IR remote control.
+ 
+The box used in this video is a M8S (RK3288) I picked up on eBay for $15.99 shipped. It sports a Quad Core Rockchip RK3288 @ 1.8GHz and 2 GB of DDR3 RAM.
+https://www.ebay.com/itm/264726126644
+ 
+!! Warning !!
+In order to get the RK3288 to boot to microSD you have to format the eMMC storage. This will remove the Android OS that came with the device. Make sure you have a backup of the Android image before proceeding in case you want to revert to Android in the future.
+ 
+Things You Will Need
+   - A microSD card at least 8 GB  https://amzn.to/36CpShC |  https://amzn.to/3CXJngt |  https://amzn.to/3JqyxSP
+   - A USB A to USB A cable
+ 
+Preparing the TV Box to Boot from MicroSD
+   01. Download RK3288_Files.zip  https://drive.google.com/file/d/10YXY...
+   02. Extract RK3288_Files.zip
+   03. Navigate to extracted files/Driver/ ≫ Right click DriverInstall.exe ≫ Run as administrator
+   04. Click Install Driver
+   05. Click Install on any security popups that display
+   06. Navigate to extracted files/AndroidTool/ ≫ Right click AndroidTool.exe ≫ Run as administrator
+   07. Select the Upgrade Firmware tab
+   08. While holding in the reset button on the TV Box, connect a USB cable from the OTG port to a USB port on your computer
+   09. Click the EraseFlash button
+   10. When the process completes unplug the USB cable from the PC
+   11. While holding in the reset button on the TV Box, connect a USB cable from the OTG port to a USB port on your computer
+   12. On the Download Image tab, Uncheck everything but #1 - Loader
+   13. Click the far right column on the Loader row and navigate to the extracted file location ≫ Select RK3288Loader_uboot_V2.17.02.bin
+   14. While holding in the reset button on the TV Box, connect a USB cable from the OTG port to a USB port on your computer
+   15. AndroidTool should recognize the device
+   16. Click Run to flash the uboot
+   17. Unplug the USB cable from the TV box
+ 
+Downloads and Flashing to MicroSD
+   01. Download Armbian  https://drive.google.com/file/d/1pn8w...
+   02. Download Balena Etcher  https://www.balena.io/etcher/
+   03. Run Balena Etcher
+   04. Burn Armbian image to microSD card
+   05. Insert microSD card to Android TV box
+ 
+Booting to Armbian for the First Time
+   01. Plug the power adapter into the Android TV box
+   02. The device will begin booting Armbian from the microSD card
+   03. You should see the Armbian terminal running startup scripts
+   04. When prompted, login with username: root password: 1234
+   05. Input a new root password
+   06. Confirm the new root password
+   07. When prompted, input a username
+   08. Input a password for the new user
+   09. Confirm the password for the new user
+   10. Follow any additional the prompts
+   11. Armbian will boot into the desktop environment
+ 
+Reverting TV Box to Android
+   01. In Armbian launch Gparted
+   02. Select the eMMC/NAND device from the devices dropdown
+   03. Format the eMMC/NAND device
+   04. On a PC, navigate to extracted files/AndroidTool/ ≫ Right click AndroidTool.exe ≫ Run as administrator
+   05. Select the Upgrade Firmware tab
+   06. While holding in the reset button on the TV Box, connect a USB cable from the OTG port to a USB port on your computer
+   07. Click the EraseFlash button
+   08. Unplug the USB cable from the PC
+   09. While holding in the reset button on the TV Box, connect a USB cable from the OTG port to a USB port on your computer
+   10. Click the Firmware Button
+   11. Navigate to the extracted files ≫ Select the Android .img file ≫ Click the Upgrade button
+   12. After the process completes, unplug the USB cable from the PC and power on the TV box
+   13. The factory Android image will boot from the internal storage
+ 
+Special thanks to the developers and forum members over at  https://forum.armbian.com/topic/14232... for making this possible
+ 
+
+
+### Connect with me and others ###
+★ Discord: https://discord.com/invite/EzenvmSHW8
+★ Reddit: https://reddit.com/r/i12bretro
+★ Twitter: https://twitter.com/i12bretro
